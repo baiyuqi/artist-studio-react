@@ -1,5 +1,4 @@
 import { create as ipfsHttpClient } from "ipfs-http-client";
-const ipfs = ipfsHttpClient({ host: '127.0.0.1', 'api-path': '/ipfs/api/v0/', protocol: 'http', port: 5001 });
 import useArConnect from "use-arconnect"
 import { messageBox } from "../service/message-service"
 

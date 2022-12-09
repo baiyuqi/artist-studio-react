@@ -21,6 +21,7 @@ export default function Home() {
             <Sider width={200} style={{ background: colorBgContainer }}>
                 <Menu
                     mode="inline"
+                    theme='light'
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}

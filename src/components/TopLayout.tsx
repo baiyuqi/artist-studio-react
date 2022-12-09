@@ -9,6 +9,7 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Connect from './Connect';
 import NftMintor from './NftMintor';
 import styles from "./TopLayout.module.css"
+import Personal from './Personal';
 
 const { Header, Content, Sider } = Layout;
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -41,6 +42,9 @@ export default function TopLayout() {
                         <Link to="/nft-mintor">铸币</Link>
                     </Menu.Item>
                     <Menu.Item>
+                        <Link to="/personal">个人中心</Link>
+                    </Menu.Item>
+                    <Menu.Item>
                         <Connect />
                     </Menu.Item>
                 </Menu>
@@ -50,7 +54,7 @@ export default function TopLayout() {
                     <Route path="/home/*" element={<Home />} />
                     <Route path="/nft-browser" element={<NftSearch />} />
                     <Route path="/nft-mintor" element={<NftMintor />} />
-                    
+                    <Route path="/personal" element={<Personal />} />
                 </Routes>
             </div>
         </Layout>

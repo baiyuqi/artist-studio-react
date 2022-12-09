@@ -80,7 +80,7 @@ function NftMinter() {
                     type='file'
                     placeholder="Asset Image"
                     className={styles.NftField}
-                    onChange={(e) => { store(e.target.files[0]) }}
+                    onChange={(e) => { e.target.files&&store(e.target.files[0]) }}
                 />
 
 
