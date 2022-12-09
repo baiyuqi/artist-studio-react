@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 
-
+import { EditOutlined, PoundOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import ArticleBrowser from './ArticleBrowser';
@@ -26,9 +26,9 @@ export default function Home() {
                     style={{ height: '100%', borderRight: 0 }}
 
                 >
-                    <Menu.Item><Link to="home/article">文章</Link></Menu.Item>
-                    <Menu.Item><Link to="home/market">市场</Link></Menu.Item>
-                    <Menu.Item><Link to="home/star">明星</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(EditOutlined)}><Link to="home/article">文章</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(PoundOutlined)}><Link to="home/market">市场</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(UserOutlined)}><Link to="home/star">明星</Link></Menu.Item>
 
                 </Menu>
 

@@ -8,6 +8,7 @@ import NftSearch from "./NftSearch"
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Connect from './Connect';
 import NftMintor from './NftMintor';
+import styles from "./TopLayout.module.css"
 
 const { Header, Content, Sider } = Layout;
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -28,7 +29,7 @@ export default function TopLayout() {
     return (
         <Layout>
             <Header className="header">
-                <div className="logo" />
+                <div className={styles.logo} />
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} >
                     <Menu.Item>
                         <Link to="/home">首页</Link>
