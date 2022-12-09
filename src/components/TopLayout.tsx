@@ -20,7 +20,7 @@ type Props = {
     children: JSX.Element,
 };
 
-export default function TopLayout({ children }: Props) {
+export default function TopLayout() {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -31,7 +31,7 @@ export default function TopLayout({ children }: Props) {
                 <div className="logo" />
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} >
                     <Menu.Item>
-                        <Link to="/">首页</Link>
+                        <Link to="/home">首页</Link>
                     </Menu.Item>
                     <Menu.Item>
                         <Link to="/nft-browser">NFT浏览</Link>
@@ -46,7 +46,7 @@ export default function TopLayout({ children }: Props) {
             </Header>
             <div>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/home/*" element={<Home />} />
                     <Route path="/nft-browser" element={<NftSearch />} />
                     <Route path="/nft-mintor" element={<NftMintor />} />
                     
