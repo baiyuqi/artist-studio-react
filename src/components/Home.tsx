@@ -4,9 +4,9 @@ import '../index.css';
 import { EditOutlined, PoundOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-import ArticleBrowser from './ArticleBrowser';
-import MarketBrowser from './MarketBrowser';
-import StarBrowser from './StarBrowser';
+import ArticleBrowser from './home-comp/ArticleBrowser';
+import MarketBrowser from './home-comp/MarketBrowser';
+import StarBrowser from './home-comp/StarBrowser';
 const { Header, Content, Sider } = Layout;
 
 
@@ -27,9 +27,9 @@ export default function Home() {
                     style={{ height: '100%', borderRight: 0 }}
 
                 >
-                    <Menu.Item icon={React.createElement(EditOutlined)}><Link to="home/article">文章</Link></Menu.Item>
-                    <Menu.Item icon={React.createElement(PoundOutlined)}><Link to="home/market">市场</Link></Menu.Item>
-                    <Menu.Item icon={React.createElement(UserOutlined)}><Link to="home/star">明星</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(EditOutlined)}><Link to="article">文章</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(PoundOutlined)}><Link to="market">市场</Link></Menu.Item>
+                    <Menu.Item icon={React.createElement(UserOutlined)}><Link to="star">明星</Link></Menu.Item>
 
                 </Menu>
 
@@ -51,9 +51,9 @@ export default function Home() {
                     
 
                         <Routes>
-                            <Route path="home/article" element={<ArticleBrowser />} />
-                            <Route path="home/market" element={<MarketBrowser />} />
-                            <Route path="home/star" element={<StarBrowser />} />
+                            <Route path="article" element={<ArticleBrowser />} />
+                            <Route path="market" element={<MarketBrowser />} />
+                            <Route path="star" element={<StarBrowser />} />
 
                         </Routes>
 

@@ -1,6 +1,7 @@
 import { Store } from 'react-notifications-component';
+import type { NOTIFICATION_TYPE } from 'react-notifications-component';
 
-export const messageBox = async (type, title, message) => {
+export const messageBox = async (type: NOTIFICATION_TYPE|undefined, title:string, message:string) => {
     Store.addNotification({
         title: title,
         message: message,

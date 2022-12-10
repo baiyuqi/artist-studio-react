@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { messageBox } from "../service/message-service"
-import { NetworkConfiguration } from '../config'
+import { configuration } from '../config'
 
     export const connectOnce = async () => {
         debugger;
@@ -13,7 +13,7 @@ import { NetworkConfiguration } from '../config'
     }
     export const trying = async () => {
         const {chainId, address, provider, signer} = await connectOnce();
-        const supported = NetworkConfiguration.chainId.toString();
+        const supported = configuration().chainId.toString();
         if (chainId == supported) {
             messageBox("success", "", 'chainId: ' + chainId + "      account: " + address.substring(0, 5) + "..")
 
@@ -30,7 +30,7 @@ import { NetworkConfiguration } from '../config'
         
         await window.ethereum.request({
             method: "wallet_addEthereumChain",
-            params: NetworkConfiguration.params
+            params: configuration().params
 
         });
         await trying();

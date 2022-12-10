@@ -44,8 +44,8 @@ function NftMinter() {
             messageBox("success", "", metauri)
             const { success, tokenId } = await mintNFT(metauri);
 
-            if (success) {
-                messageBox("success", "", tokenId)
+            if (success && tokenId) {
+                messageBox("success", "", tokenId?.toString())
                 navigate("/nft-browser")
                 // router.push("/mynft")
             } else {

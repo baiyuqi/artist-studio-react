@@ -1,7 +1,8 @@
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import axios from 'axios'
-const ipfs = ipfsHttpClient({ host: '127.0.0.1', 'api-path': '/ipfs/api/v0/', protocol: 'http', port: '5001' });
-export const storeMeta = async (data) => {
+
+const ipfs = ipfsHttpClient({ url: 'http://127.0.0.1:5001/ipfs/api/v0/'});
+export const storeMeta = async (data:any) => {
     
     const json = JSON.stringify(data);
         alert(json);
@@ -17,7 +18,7 @@ export const testGet = async () => {
     const meta = await axios.get("http://127.0.0.1:8080/ipfs/QmaJ6kjXLxvPNgPaggntvtXuo9D4T2uYcU7sdxuyYV7hKA")
     return meta;
 }
-export const addToIpfs = async (entity) => {
+export const addToIpfs = async (entity:any) : Promise<string> => {
     debugger
      const added = await ipfs.add(entity)
     const cid = added.path

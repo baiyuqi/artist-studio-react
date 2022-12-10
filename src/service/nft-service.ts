@@ -1,7 +1,8 @@
 import { ethers } from 'ethers'
 import { rpcUrl} from '../config'
 import { trying} from './connection-service'
-import { NetworkConfiguration } from '../config';
+
+import { configuration } from '../config'
 import NFT from "../artifacts/contracts/NFT.sol/MyErc721.json";
 import type { Nft } from './types';
 import axios from 'axios'
@@ -15,7 +16,7 @@ export const owned = async () : Promise<{success: boolean, data: Nft[]}> => {
   
     const address = await signer?.getAddress();
    
-    const nft = new ethers.Contract(NetworkConfiguration.nftAddress, NFT.abi, provider);
+    const nft = new ethers.Contract(configuration().nftAddress, NFT.abi, provider);
    
   
     const count = await nft.balanceOf(address)
@@ -37,7 +38,7 @@ export const owned = async () : Promise<{success: boolean, data: Nft[]}> => {
 export const totalsupply = async (): Promise<number> => {
     const provider = new ethers.providers.JsonRpcProvider(rpcUrl());
 
-    const nft = new ethers.Contract(NetworkConfiguration.nftAddress, NFT.abi, provider);
+    const nft = new ethers.Contract(configuration().nftAddress, NFT.abi, provider);
    const total = await nft.totalSupply();
   return total;
 }
@@ -50,7 +51,7 @@ export const mintNFT = async (tokenUri:String):Promise<{success:boolean, tokenId
     }
         
    
-    let nft = new ethers.Contract(NetworkConfiguration.nftAddress, NFT.abi, signer);
+    let nft = new ethers.Contract(configuration().nftAddress, NFT.abi, signer);
     const address = await signer.getAddress();
     let transaction = await nft.connect(signer).mint(address, tokenUri, {value: 1000000000});
     let tx = await transaction.wait(1);
