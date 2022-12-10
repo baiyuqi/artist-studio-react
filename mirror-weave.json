@@ -1,0 +1,22 @@
+{
+    "content": {
+        "body": "All of Mirror’s posts are available to access on [Arweave](https://www.arweave.org/), an on-chain decentralized storage layer that makes it so that your posts exist forever (even if Mirror does not)!\n\nHere’s a basic tutorial on how to get data published on Mirror directly from Arweave:\n\n1. Grab the Mirror content digest from the end of a Mirror post URL. The URL for this post is `dev.mirror.xyz/GjssNdA6XK7VYynkvwDem3KYwPACSU9nDWpR5rei3hw` and so the digest is `GjssNdA6XK7VYynkvwDem3KYwPACSU9nDWpR5rei3hw`\n2. We’re going to plug this digest value into a query against [Arweave’s graphQL endpoint](https://www.google.com/search?q=arweave+graphql&rlz=1C5CHFA_enUS932US932&oq=arweave+graphql&aqs=chrome..69i57j69i61j69i60.2079j0j7&sourceid=chrome&ie=UTF-8) to render the data\n3. We’re going to make use of a couple of tags to get the Arweave transaction via GraphQL. Every post on Mirror has a few tags we can use to filter for the content:\n   1. `App-Name: MirrorXYZ` tells Arweave to scope the results to all posts on Mirror\n   2. `Original-Content-Digest: GjssNdA6XK7VYynkvwDem3KYwPACSU9nDWpR5rei3hw` tells Arweave to return every single transaction that matches the requested content digest\n   3. By default, we upload every single published update on a post to Arweave, so the query returns a list. To get the most recently published update sent to Arweave, we just sort the results by block height and grab the newest transaction.\n4. Once, we have the Transaction ID we need, we can use the `getData` function in the [Arweave JS SDK](https://github.com/ArweaveTeam/arweave-js) to render the JSON content\n   1. We can also verify that we have the correct transactino ID navigating to `arweave.net/<TRANSACTION_ID>` which will render the JSON\n   2. Our digest `GjssNdA6XK7VYynkvwDem3KYwPACSU9nDWpR5rei3hw` returns a transaction ID of \\`\\` which directs to `arweave.net/<txID>` which renders the content you see here.\n\nThe query is available as a gist [here](https://gist.github.com/saarim-mirror/2605fda5baf8b428385c872f6eb5d6d5).\n\nIn order to bypass requiring content digests to populate Mirror posts, you can use the `Contributor` tag to query for all posts made by a specific wallet.",
+        "timestamp": 1649100481,
+        "title": "Retrieving posts directly from Arweave"
+    },
+    "digest": "PHOoLur55I5vHzGK5Izxhqggqiq-JDAEnQDJ8B0v8Yg",
+    "authorship": {
+        "contributor": "0xbDc4199575A5FA3F19e9888C5d51Bde798F404Cc",
+        "signingKey": "{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[\"verify\"],\"kty\":\"EC\",\"x\":\"Vl_BBeMY8WGMDAS_Jss06WmnCdu4XGBRnfIYY44E1DU\",\"y\":\"9aKz_P8U-O_gK5gZrR2ed4uh8Po7ETJEaKLkCsvjTPs\"}",
+        "signature": "2AHCJqx-D2CPax16_-PQsqEHjcIX9jHA4_EcIu1ym-LxHwkgGNc7bFoW8Ya-SEZd-gYAR4Ru0eqrvU2JnPL2rQ",
+        "signingKeySignature": "0xbe2b79ac5402896a68a53dd161dea1093bf8570d0733be2513ed15964a607ec92aaf2a10aea9d59eabeff8beaa431e21da5aa9b917f90e7af5f0c73af4c649a01c",
+        "signingKeyMessage": "I authorize publishing on mirror.xyz from this device using:\n{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[\"verify\"],\"kty\":\"EC\",\"x\":\"Vl_BBeMY8WGMDAS_Jss06WmnCdu4XGBRnfIYY44E1DU\",\"y\":\"9aKz_P8U-O_gK5gZrR2ed4uh8Po7ETJEaKLkCsvjTPs\"}",
+        "algorithm": {
+            "name": "ECDSA",
+            "hash": "SHA-256"
+        }
+    },
+    "nft": {},
+    "version": "12-21-2020",
+    "originalDigest": "GjssNdA6XK7VYynkvwDem3KYwPACSU9nDWpR5rei3hw"
+}
