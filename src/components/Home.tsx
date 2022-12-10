@@ -18,7 +18,17 @@ export default function Home() {
     return (
 
         <Layout>
-            <Sider width={200} style={{ background: colorBgContainer }}>
+            <Sider 
+              breakpoint="lg"
+              collapsedWidth="0"
+              onBreakpoint={(broken) => {
+                console.log(broken);
+              }}
+              onCollapse={(collapsed, type) => {
+                console.log(collapsed, type);
+              }}
+            width={200} 
+            style={{ background: colorBgContainer }}>
                 <Menu
                     mode="inline"
                     theme='light'

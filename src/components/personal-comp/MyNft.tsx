@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import NftBrowser from ".//NftBrowser"
-import { owned } from "../service/nft-service"
-import type{ Nft} from "../service/types" 
+import NftBrowser from "../common/NftBrowser"
+import { owned } from "../../service/nft-service"
+import type{ Nft} from "../../service/types" 
 function MyNft() {
   const [nfts, setNfts] = useState<Nft[]>([])
 

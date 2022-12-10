@@ -27,10 +27,10 @@ import { configuration } from '../config'
         let {success} = await trying();
         if(success)
             return;
-        
+        const conf = configuration()
         await window.ethereum.request({
             method: "wallet_addEthereumChain",
-            params: configuration().params
+            params: conf.params
 
         });
         await trying();

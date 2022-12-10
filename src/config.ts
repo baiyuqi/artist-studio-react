@@ -5,7 +5,7 @@ type NetworkConfiguration = {
     nftAddress: string,
 
     params: {
-        chainId: number,
+        chainId: string,
         rpcUrls:string[],
         chainName: string,
         nativeCurrency: {
@@ -21,10 +21,10 @@ type NetworkConfiguration = {
     
     chainId: 0x7A69,
    
-    nftAddress: "0x2344543319A438c39cA4BbC5b89e39C753008436",
+    nftAddress: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
 
     params: [{
-        chainId: 0x7A69,
+        chainId: '0x7A69',
         rpcUrls: ["http://127.0.0.1:8545/"],
         chainName: "localhost-hardhat",
         nativeCurrency: {
@@ -43,10 +43,10 @@ type NetworkConfiguration = {
     
 
     chainId: 0x539,
-    nftAddress: "0x2344543319A438c39cA4BbC5b89e39C753008436",
+    nftAddress: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
 
     params: [{
-        chainId: 0x0539,
+        chainId: '0x0539',
         rpcUrls: ["http://127.0.0.1:8545/"],
         chainName: "localhost-ganache",
         nativeCurrency: {
@@ -63,7 +63,7 @@ type NetworkConfiguration = {
 }
 ]
 export const configuration = ()=> confs[selection]
-const selection = 1
+const selection = 0
 export const rpcUrl = ()=>{
     return confs[selection].params[0].rpcUrls[0];
 }

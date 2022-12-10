@@ -1,6 +1,6 @@
 
 import NftCard from "./NftCard"
-import type {Nft} from "../service/types"
+import type {Nft} from "../../service/types"
 import styled from "styled-components";
 import styles from './NftBrowser.module.css'
 

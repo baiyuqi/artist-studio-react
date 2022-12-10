@@ -4,12 +4,13 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import Home from './Home';
-import NftSearch from "./NftSearch"
+
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import Connect from './Connect';
-import NftMintor from './NftMintor';
+
 import styles from "./TopLayout.module.css"
 import Personal from './Personal';
+import NftMarket from './NftMarket';
 
 const { Header, Content, Sider } = Layout;
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -36,11 +37,9 @@ export default function TopLayout() {
                         <Link to="/home">首页</Link>
                     </Menu.Item>
                     <Menu.Item>
-                        <Link to="/nft-browser">NFT浏览</Link>
+                        <Link to="/nft-market">NFT市场</Link>
                     </Menu.Item>
-                    <Menu.Item>
-                        <Link to="/nft-mintor">铸币</Link>
-                    </Menu.Item>
+                   
                     <Menu.Item>
                         <Link to="/personal">个人中心</Link>
                     </Menu.Item>
@@ -52,9 +51,8 @@ export default function TopLayout() {
             <div>
                 <Routes>
                     <Route path="/home/*" element={<Home />} />
-                    <Route path="/nft-browser" element={<NftSearch />} />
-                    <Route path="/nft-mintor" element={<NftMintor />} />
-                    <Route path="/personal" element={<Personal />} />
+                    <Route path="/nft-market/*" element={<NftMarket />} />
+                    <Route path="/personal/*" element={<Personal />} />
                 </Routes>
             </div>
         </Layout>

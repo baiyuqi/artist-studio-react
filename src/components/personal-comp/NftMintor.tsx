@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 import React from 'react';
-import { mintNFT } from '../service/nft-service';
+import { mintNFT } from '../../service/nft-service';
 
-import { messageBox } from "../service/message-service"
-import { toArweave, imageToArweave } from "../service/arweave-service"
+import { messageBox } from "../../service/message-service"
+import { toArweave, imageToArweave } from "../../service/arweave-service"
 import { Button, Checkbox, Form, Input } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { NftMeta } from "../service/types";
+import type { NftMeta } from "../../service/types";
 import { Upload } from 'antd';
 import { useNavigate } from "react-router-dom"
 import styles from './NftMintor.module.css'
@@ -18,7 +18,7 @@ const props = {
         authorization: 'authorization-text',
     }
 }
-function NftMinter() {
+function NftMintor() {
 
     const navigate = useNavigate()
     const [meta, updateMeta] = useState<NftMeta>({ name: "", descriptipn: "", imageUri: "" })
@@ -99,4 +99,4 @@ function NftMinter() {
     )
 }
 
-export default NftMinter
+export default NftMintor

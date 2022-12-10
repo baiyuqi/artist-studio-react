@@ -1,5 +1,5 @@
 import { Card } from 'antd';
-import type { Nft } from '../service/types';
+import type { Nft } from '../../service/types';
 const { Meta } = Card;
 
 function NftCard({nft}:{nft:Nft}){
