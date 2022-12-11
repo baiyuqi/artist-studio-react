@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import NftBrowser from "../common/NftBrowser"
 import { myArticles } from "../../service/arweave-service"
-import { Table, Pagination, Card, Modal, Button, Form, Input, InputNumber, Select, Checkbox, Radio, notification } from 'antd'
+import { Typography,Table, Pagination, Card, Modal, Button, Form, Input, InputNumber, Select, Checkbox, Radio, notification } from 'antd'
 
 function ArticleList() {
     const [articles, setArticles] = useState<any[]>([])
@@ -12,9 +12,10 @@ function ArticleList() {
             width: 80,
         },
         {
-            title: 'ID',
-            dataIndex: 'shortId',
-            width: 30,
+            title:     'ID',
+            dataIndex: 'id',
+            width: 100,
+            ellipsis:true
         },
         {
             title: '标题',
