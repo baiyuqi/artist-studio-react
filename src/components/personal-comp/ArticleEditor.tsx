@@ -8,7 +8,7 @@ import { draftToMarkdown, markdownToDraft } from 'markdown-draft-js'
 import { storeArticle } from '../../service/arweave-service';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Layout, theme, Button, Space } from 'antd';
+import { Layout, theme, Button, Space, Input } from 'antd';
 const { Header, Content, Footer } = Layout;
 function ArticleEditorQuill() {
     const [value, setValue] = useState('');
@@ -67,7 +67,9 @@ export default function ArticleEditorDraft() {
                     background: colorBgContainer
                 }}
             >
+                <Input placeholder='请输入标题' />
                 <Editor
+                placeholder='请输入内容'
                     editorState={editorState}
                     wrapperClassName="demo-wrapper"
                     editorClassName="demo-editor"

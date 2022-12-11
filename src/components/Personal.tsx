@@ -96,7 +96,7 @@ export default function Personal() {
                 >
                    
                    <Routes>
-                            <Route path="article-write" element={<Blog />} />
+                            <Route path="article-write" element={<ArticleEditor />} />
                             <Route path="article-scratch" element={<ArticleScratch />} />
                             <Route path="article-browse" element={<ArticleList />} />
                             <Route path="collectible-mint" element={<NftMintor />} />
