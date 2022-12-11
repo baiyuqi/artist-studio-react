@@ -12,11 +12,12 @@ import { Layout, theme, Button, Space, Input } from 'antd';
 const { Header, Content, Footer } = Layout;
 function ArticleEditorQuill() {
     const [value, setValue] = useState('');
-
+   
     return <ReactQuill theme="snow" value={value} onChange={setValue} />;
 }
 export default function ArticleEditorDraft() {
     const [editorState, setEditorState] = useState(EditorState.createEmpty())
+    const [title, setTitle] = useState('');
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -51,7 +52,8 @@ export default function ArticleEditorDraft() {
     async function publishPost() {
         // turn the state to html
         const html = draftToHtml(convertToRaw(editorState.getCurrentContent()))
-        const url = await storeArticle(html);
+        const tags = {"Content-Type":"text/html", "Domain-Type":"article", title: title}
+        const url = await storeArticle(html, tags);
         alert(url)
 
         // post the data to you mongo storage.
@@ -67,7 +69,7 @@ export default function ArticleEditorDraft() {
                     background: colorBgContainer
                 }}
             >
-                <Input placeholder='请输入标题' />
+                <Input onChange={(e)=>setTitle(e.target.value)} placeholder='请输入标题' />
                 <Editor
                 placeholder='请输入内容'
                     editorState={editorState}

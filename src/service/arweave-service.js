@@ -1,4 +1,5 @@
 import Arweave from "arweave";
+import { keyframes } from "styled-components";
 import { messageBox } from "../service/message-service"
 import { recipientQuery, ownersQuery } from './arweave-query-api';
 const arweave = Arweave.init({
@@ -46,14 +47,17 @@ const readImageFile = (file) => {
         reader.readAsArrayBuffer(file)
     })
 }
-export const storeArticle = async function (content) {
+export const storeArticle = async function (content, tags) {
 
 
     let tx = await arweave.createTransaction({
         data: content,
     });
-    tx.addTag('Content-Type', 'text/html');
-    tx.addTag('Domain-Type', 'article');
+    Object.keys(tags).map((k)=>{
+        tx.addTag(k, tags[k]);
+    })
+  //  tx.addTag('Content-Type', 'text/html');
+  //  tx.addTag('Domain-Type', 'article');
     await arweave.transactions.sign(tx);//
     const response = await arweave.transactions.post(tx);
 
