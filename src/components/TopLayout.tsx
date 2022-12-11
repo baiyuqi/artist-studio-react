@@ -48,7 +48,6 @@ export default function TopLayout() {
                         <Test />
                     </Menu.Item>
                     <Menu.Item>
-
                         <Connect />
                     </Menu.Item>
                 </Menu>

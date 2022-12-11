@@ -8,6 +8,8 @@ import { draftToMarkdown, markdownToDraft } from 'markdown-draft-js'
 import { storeArticle } from '../../service/arweave-service';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Layout, theme, Button, Space } from 'antd';
+const { Header, Content, Footer } = Layout;
 function ArticleEditorQuill() {
     const [value, setValue] = useState('');
 
@@ -15,7 +17,9 @@ function ArticleEditorQuill() {
 }
 export default function ArticleEditorDraft() {
     const [editorState, setEditorState] = useState(EditorState.createEmpty())
-
+    const {
+        token: { colorBgContainer },
+    } = theme.useToken();
 
 
     const onEditorStateChange = (es: EditorState) => {
@@ -53,28 +57,37 @@ export default function ArticleEditorDraft() {
         // post the data to you mongo storage.
     }
     return (
-        <div>
-            <Editor
-                editorState={editorState}
-                wrapperClassName="demo-wrapper"
-                editorClassName="demo-editor"
-                onEditorStateChange={onEditorStateChange}
-                toolbar={{
-                    inline: { inDropdown: true },
-                    list: { inDropdown: true },
-                    textAlign: { inDropdown: true },
-                    link: { inDropdown: true },
-                    history: { inDropdown: true },
-                    image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
+        <Layout>
+
+            <Content
+                style={{
+                    padding: 24,
+                    margin: 0,
+                    minHeight: 280,
+                    background: colorBgContainer
                 }}
-            />
-            <textarea
-                disabled
-                value={draftToMarkdown(convertToRaw(editorState.getCurrentContent()))}
-            />
-            <div>
-                <button onClick={publishPost} type="button">Submit</button>
-            </div>
-        </div>
+            >
+                <Editor
+                    editorState={editorState}
+                    wrapperClassName="demo-wrapper"
+                    editorClassName="demo-editor"
+                    onEditorStateChange={onEditorStateChange}
+                    toolbar={{
+                        inline: { inDropdown: true },
+                        list: { inDropdown: true },
+                        textAlign: { inDropdown: true },
+                        link: { inDropdown: true },
+                        history: { inDropdown: true },
+                        image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
+                    }}
+                />
+            </Content>
+            <Footer>
+                <Space wrap>
+                    <Button type="primary" onClick={publishPost} >发表</Button>
+                    <Button type="primary" >保存</Button>
+                </Space>
+            </Footer>
+        </Layout>
     );
 }
