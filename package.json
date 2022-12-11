@@ -15,6 +15,7 @@
     "arweave": "^1.11.8",
     "axios": "^1.2.1",
     "draftjs-to-html": "^0.9.1",
+    "echarts-for-react": "^3.0.2",
     "ethers": "^5.7.2",
     "ipfs-http-client": "^59.0.0",
     "markdown-draft-js": "^2.4.0",
