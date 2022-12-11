@@ -11,6 +11,7 @@ import Connect from './Connect';
 import styles from "./TopLayout.module.css"
 import Personal from './Personal';
 import NftMarket from './NftMarket';
+import Test from './Test';
 
 const { Header, Content, Sider } = Layout;
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -44,6 +45,10 @@ export default function TopLayout() {
                         <Link to="/personal">个人中心</Link>
                     </Menu.Item>
                     <Menu.Item>
+                        <Test />
+                    </Menu.Item>
+                    <Menu.Item>
+
                         <Connect />
                     </Menu.Item>
                 </Menu>

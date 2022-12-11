@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import { PoundOutlined, NotificationOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
+import { PoundOutlined, NotificationOutlined,FileOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
@@ -68,14 +68,14 @@ export default function Personal() {
                     style={{ height: '100%', borderRight: 0 }}
                     
                 >
-                    <Menu.SubMenu title="文章" icon={React.createElement(BookOutlined)}>
-                        <Menu.Item ><Link to="article-write">写文章</Link></Menu.Item>
-                        <Menu.Item ><Link to="article-scratch">草稿</Link></Menu.Item>
-                        <Menu.Item ><Link to="article-browse">浏览</Link></Menu.Item>
+                    <Menu.SubMenu title="文章">
+                        <Menu.Item  icon={React.createElement(EditOutlined)}><Link to="article-write">写文章</Link></Menu.Item>
+                        <Menu.Item  icon={React.createElement(FileOutlined)}><Link to="article-scratch">草稿</Link></Menu.Item>
+                        <Menu.Item  icon={React.createElement(FolderViewOutlined)}><Link to="article-browse">浏览</Link></Menu.Item>
                     </Menu.SubMenu>
-                    <Menu.SubMenu  title="藏品" icon={React.createElement(PoundOutlined)}>
-                        <Menu.Item ><Link to="collectible-mint">铸币</Link></Menu.Item>
-                        <Menu.Item><Link to="collectible-browse">浏览</Link></Menu.Item>
+                    <Menu.SubMenu  title="藏品" >
+                        <Menu.Item  icon={React.createElement(PoundOutlined)}><Link to="collectible-mint">铸币</Link></Menu.Item>
+                        <Menu.Item  icon={React.createElement(PropertySafetyOutlined)}><Link to="collectible-browse">浏览</Link></Menu.Item>
                     </Menu.SubMenu>
                 </Menu>
             </Sider>

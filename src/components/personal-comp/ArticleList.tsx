@@ -17,7 +17,7 @@ function ArticleList() {
         console.log("mounted!")
     }
     return (
-        <div className="main">
+        <div>
             {articles.map(article => {
                 return (<div>
                     {article.node.id}
