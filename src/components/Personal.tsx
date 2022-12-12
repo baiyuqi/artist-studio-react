@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import { PoundOutlined, NotificationOutlined,FileOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
+import { PoundOutlined, NotificationOutlined, FileOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
@@ -61,22 +61,32 @@ export default function Personal() {
     return (
 
         <Layout>
-            <Sider width={200} style={{ background: colorBgContainer }}>
+            <Sider
+                breakpoint="lg"
+                collapsedWidth="0"
+                onBreakpoint={(broken) => {
+                    console.log(broken);
+                }}
+                onCollapse={(collapsed, type) => {
+                    console.log(collapsed, type);
+                }}
+                width={200}
+                style={{ background: colorBgContainer }}>
                 <Menu
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
-                    
+
                 >
                     <Menu.SubMenu title="文章">
-                        <Menu.Item  icon={React.createElement(EditOutlined)}><Link to="article-write">写文章</Link></Menu.Item>
-                        <Menu.Item  icon={React.createElement(FileOutlined)}><Link to="article-scratch">草稿</Link></Menu.Item>
-                        <Menu.Item  icon={React.createElement(FolderViewOutlined)}><Link to="article-browse">浏览</Link></Menu.Item>
+                        <Menu.Item icon={React.createElement(EditOutlined)}><Link to="article-write">写文章</Link></Menu.Item>
+                        <Menu.Item icon={React.createElement(FileOutlined)}><Link to="article-scratch">草稿</Link></Menu.Item>
+                        <Menu.Item icon={React.createElement(FolderViewOutlined)}><Link to="article-browse">浏览</Link></Menu.Item>
                     </Menu.SubMenu>
-                    <Menu.SubMenu  title="藏品" >
-                        <Menu.Item  icon={React.createElement(PoundOutlined)}><Link to="collectible-mint">铸币</Link></Menu.Item>
-                        <Menu.Item  icon={React.createElement(PropertySafetyOutlined)}><Link to="collectible-browse">浏览</Link></Menu.Item>
+                    <Menu.SubMenu title="藏品" >
+                        <Menu.Item icon={React.createElement(PoundOutlined)}><Link to="collectible-mint">铸币</Link></Menu.Item>
+                        <Menu.Item icon={React.createElement(PropertySafetyOutlined)}><Link to="collectible-browse">浏览</Link></Menu.Item>
                     </Menu.SubMenu>
                 </Menu>
             </Sider>
@@ -94,14 +104,14 @@ export default function Personal() {
                         background: colorBgContainer,
                     }}
                 >
-                   
-                   <Routes>
-                            <Route path="article-write" element={<ArticleEditor />} />
-                            <Route path="article-scratch" element={<ArticleScratch />} />
-                            <Route path="article-browse" element={<ArticleList />} />
-                            <Route path="collectible-mint" element={<NftMintor />} />
-                            <Route path="collectible-browse" element={<MyNft />} />
-                        </Routes>
+
+                    <Routes>
+                        <Route path="article-write" element={<ArticleEditor />} />
+                        <Route path="article-scratch" element={<ArticleScratch />} />
+                        <Route path="article-browse" element={<ArticleList />} />
+                        <Route path="collectible-mint" element={<NftMintor />} />
+                        <Route path="collectible-browse" element={<MyNft />} />
+                    </Routes>
 
                 </Content>
             </Layout>
