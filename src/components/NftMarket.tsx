@@ -27,15 +27,15 @@ const onClick: MenuProps['onClick'] = ({ key }) => {
 
 const items: MenuProps['items'] = [
     {
-        label: '艺术',
+        label: '书法',
         key: '1',
         children: [
             {
-                label: '艺术',
+                label: '传统',
                 key: '1',
             },
             {
-                label: '科技',
+                label: '当代',
                 key: '2',
             },
             {
@@ -45,11 +45,11 @@ const items: MenuProps['items'] = [
         ]
     },
     {
-        label: '科技',
+        label: '绘画',
         key: '2',
     },
     {
-        label: '传统',
+        label: '诗词',
         key: '3',
     },
 ];
