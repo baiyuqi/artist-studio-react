@@ -46,7 +46,7 @@ function NftMintor() {
 
             if (success && tokenId) {
                 messageBox("success", "", tokenId?.toString())
-                navigate("/nft-browser")
+                navigate("/personal/collectible-browse")
                 // router.push("/mynft")
             } else {
                 messageBox("danger", "", "mint failed")
