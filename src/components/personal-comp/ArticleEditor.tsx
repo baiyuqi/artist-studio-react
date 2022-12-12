@@ -8,7 +8,7 @@ import { draftToMarkdown, markdownToDraft } from 'markdown-draft-js'
 import { storeArticle } from '../../service/arweave-service';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Layout, theme, Button, Space, Input } from 'antd';
+import { Layout, theme, Button, Space, Input, Divider } from 'antd';
 const { Header, Content, Footer } = Layout;
 function ArticleEditorQuill() {
     const [value, setValue] = useState('');
@@ -70,6 +70,7 @@ export default function ArticleEditorDraft() {
                 }}
             >
                 <Input onChange={(e)=>setTitle(e.target.value)} placeholder='请输入标题' />
+                <Divider />
                 <Editor
                 placeholder='请输入内容'
                     editorState={editorState}

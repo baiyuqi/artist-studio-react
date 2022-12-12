@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import { PoundOutlined, NotificationOutlined, FileOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme,Divider } from 'antd';
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import ArticleEditor from './personal-comp/ArticleEditor';
 import ArticleList from './personal-comp/ArticleList';
@@ -87,6 +87,11 @@ export default function Personal() {
                     <Menu.SubMenu title="藏品" >
                         <Menu.Item icon={React.createElement(PoundOutlined)}><Link to="collectible-mint">铸币</Link></Menu.Item>
                         <Menu.Item icon={React.createElement(PropertySafetyOutlined)}><Link to="collectible-browse">浏览</Link></Menu.Item>
+                    </Menu.SubMenu>
+                    <Divider />
+                    <Menu.SubMenu title="社区" >
+                        <Menu.Item icon={React.createElement(PoundOutlined)}><div  >众筹</div></Menu.Item>
+                        <Menu.Item icon={React.createElement(PropertySafetyOutlined)}><div>投票</div></Menu.Item>
                     </Menu.SubMenu>
                 </Menu>
             </Sider>

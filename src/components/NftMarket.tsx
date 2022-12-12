@@ -1,14 +1,9 @@
 import React from 'react';
 import '../index.css';
-import { PoundOutlined, NotificationOutlined, EditOutlined, FolderViewOutlined, BookOutlined, PropertySafetyOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import ArticleEditor from './personal-comp/ArticleEditor';
-import ArticleList from './personal-comp/ArticleList';
-import NftMintor from './personal-comp/NftMintor';
-import MyNft from './personal-comp/MyNft';
-import ArticleScratch from './personal-comp/ArticleScratch';
+import { Breadcrumb, Layout, Menu, theme, message, Dropdown } from 'antd';
+
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 
@@ -25,6 +20,39 @@ const suffix = (
         }}
     />
 );
+
+const onClick: MenuProps['onClick'] = ({ key }) => {
+    message.info(`Click on item ${key}`);
+};
+
+const items: MenuProps['items'] = [
+    {
+        label: '艺术',
+        key: '1',
+        children: [
+            {
+                label: '艺术',
+                key: '1',
+            },
+            {
+                label: '科技',
+                key: '2',
+            },
+            {
+                label: '传统',
+                key: '3',
+            },
+        ]
+    },
+    {
+        label: '科技',
+        key: '2',
+    },
+    {
+        label: '传统',
+        key: '3',
+    },
+];
 export default function NftMarket() {
     const {
         token: { colorBgContainer },
@@ -33,22 +61,32 @@ export default function NftMarket() {
 
 
 
-            <Layout style={{ padding: '0 24px 24px' }}>
-                <div style={{ margin: '16px 0' }}>
+        <Layout style={{ padding: '0 24px 24px' }}>
+            <div style={{ margin: '16px 0' }}>
+            <Space>
+                <Dropdown menu={{ items, onClick }}>
+                    <a onClick={e => e.preventDefault()}>
+                        <Space>
+                            分类
+                            <DownOutlined />
+                        </Space>
+                    </a>
+                </Dropdown>
                 <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
-                </div>
-                <Content
-                    style={{
-                        padding: 24,
-                        margin: 0,
-                        height: 800,
-                        background: colorBgContainer,
-                    }}
-                >
+                </Space>
+            </div>
+            <Content
+                style={{
+                    padding: 24,
+                    margin: 0,
+                    height: 800,
+                    background: colorBgContainer,
+                }}
+            >
 
 
-                </Content>
-            </Layout>
+            </Content>
+        </Layout>
 
 
     )
