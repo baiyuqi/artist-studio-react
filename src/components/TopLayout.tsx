@@ -35,7 +35,7 @@ export default function TopLayout() {
                 <div className={styles.logo} />
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} >
                     <Menu.Item>
-                        <Link to="/home">首页</Link>
+                        <Link to="/">首页</Link>
                     </Menu.Item>
                     <Menu.Item>
                         <Link to="/nft-market">NFT市场</Link>
@@ -54,7 +54,7 @@ export default function TopLayout() {
             </Header>
             <div>
                 <Routes>
-                    <Route path="/home/*" element={<Home />} />
+                    <Route path="/*" element={<Home />} />
                     <Route path="/nft-market/*" element={<NftMarket />} />
                     <Route path="/personal/*" element={<Personal />} />
                 </Routes>

@@ -51,7 +51,7 @@ export default function ArticleEditorDraft() {
     }
     async function publishPost() {
         // turn the state to html
-        const html = draftToHtml(convertToRaw(editorState.getCurrentContent()))
+        const html = draftToHtml(convertToRaw(editorState.getCurrentContent()))//self-contained markdown ...
         const tags = {"Content-Type":"text/html", "Domain-Type":"article", title: title}
         const url = await storeArticle(html, tags);
         alert(url)
@@ -70,7 +70,7 @@ export default function ArticleEditorDraft() {
                 }}
             >
                 <Input onChange={(e)=>setTitle(e.target.value)} placeholder='请输入标题' />
-                <Divider />
+  
                 <Editor
                 placeholder='请输入内容'
                     editorState={editorState}
