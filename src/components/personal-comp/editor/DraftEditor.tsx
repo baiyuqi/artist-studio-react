@@ -61,6 +61,7 @@ export default  function ArticleEditorDraft() {
             }
         }
     }*/
+    const handlePastedText=() => false
     function uploadImageCallBack(file:any) {
         return new Promise(
           (resolve, reject) => {
@@ -107,6 +108,7 @@ export default  function ArticleEditorDraft() {
                     wrapperClassName="demo-wrapper"
                     editorClassName="demo-editor"
                     onEditorStateChange={onEditorStateChange}
+                    handlePastedText={() => false}
                     toolbar={{
                         inline: { inDropdown: true },
                         list: { inDropdown: true },
