@@ -68,7 +68,8 @@ export const storeArticle = async function (content, tags) {
 }
 export const myArticles = async () => {
 
-    try {const wallet = window.arweaveWallet
+    try {
+        const wallet = window.arweaveWallet
         const currentAddress = await wallet.getActiveAddress()
  
         const query = ownersQuery(currentAddress);

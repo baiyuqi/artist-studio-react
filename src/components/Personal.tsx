@@ -9,7 +9,7 @@ import ArticleList from './personal-comp/ArticleList';
 import NftMintor from './personal-comp/NftMintor';
 import MyNft from './personal-comp/MyNft';
 import ArticleScratch from './personal-comp/ArticleScratch';
-import Blog from './personal-comp/ArticleEditor1';
+
 const { Header, Content, Sider } = Layout;
 
 const items2: MenuProps['items'] = [
